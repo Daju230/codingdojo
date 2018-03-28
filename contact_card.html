@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.submit').on('click',function(){
+                    var first_name=$('#first_name').val();
+                    var last_name=$('#last_name').val();
+                    var description=$('#description').val();
+                    
+                    if ( first_name.length > 0 && last_name.length > 0 && description.length > 0 ) {
+                            $('.output').append('<div class="contact">'+'<div class="top">'+'<h2>'+first_name+" "+last_name+"</h2>"+"<small>Click for Description</small></div><div class='desc'>"+description+"</div>");
+
+                            $('.input input, .input textarea').val('');
+                    } else {
+                            alert('Please enter a first name, last name, and description.');
+                    }
+            });
+            $(document).on('click','.contact',function() 
+            {
+                $(this).children().each(function(){
+                    $(this).toggle();
+                });
+            });
+        });
+        </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h1>Contact Cards</h1>
+        </div>
+        <div class="content">
+            <div class="input">
+                <form>
+                    <p class="input_row">
+                        <label for="fname">First Name: </label>
+                        <input type="text" name="first_name" id="first_name">
+                    </p>
+                    <p class="input_row">
+                        <label for="fname">Last Name: </label>
+                        <input type="text" name="last_name" id="last_name">
+                    </p>
+                    <p class="input_row">
+                        <label>Description: </label>
+                        <textarea name="description" id="description" rows="5" cols="20"></textarea>
+                    </p>
+                    <button type="button" class="submit">Add User</button>
+                </form>
+            </div>
+        </div>
+            <div class="output">
+                <div class="contact">
+                </div>
+            </div>
+    </div>
+</body>
+<style>
+    *{
+        box-sizing: border-box;
+        vertical-align: top;
+    }
+        body{
+            margin: 0;
+        }
+        #wrapper{
+            width: 800px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        input{
+            width: 400px;
+            font-size: 1rem;
+            padding: 4px;
+        }
+        textarea{
+            width: 400px;
+            height: 120px;
+            padding: 4px;
+        }
+        .submit{
+            border: 0;
+            padding: 8px 20px;
+            font-size: 1rem;
+        }
+        .input p:first-child{
+            margin-top: 0;
+        }
+        .input, .output{
+            display: inline-block;
+            width: 50%;
+        }
+        .output{
+            display: inline-block;
+            width: 50%;
+            padding-left: 10px;
+        }
+        .contact{
+            padding: 10px 10px 10px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+            .contact h2 {
+                margin-top: 0px;
+            }
+            .contact .desc {
+                display: none;
+            }
+</style>
+</html>
