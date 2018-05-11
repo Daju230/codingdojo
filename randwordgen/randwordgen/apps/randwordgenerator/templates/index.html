@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Word Generator</title>
+</head>
+<body>
+	<h1>Random Word Generator</h1>
+	<div>{{random_word}}</div>
+	<form action="/create" method="POST">
+		{% csrf_token %}
+		<input type="submit" name="submit" value="Create Word">
+	</form>
+	<form action="/clear/session" method="POST">
+		{% csrf_token %}
+		<input type="submit" name="submit" value="Reset">
+	</form>
+</body>
+</html>
