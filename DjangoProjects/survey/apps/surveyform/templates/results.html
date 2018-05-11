@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Results</title>
+    </head>
+    <body>
+        <h3>You've submitted this form {{request.session.submits}} times!</h3>
+        <h3>Submitted Information:</h3>      
+        <p>Name: {{name}}</p>
+        <p>Location: {{location}}</p>
+        <p>Language: {{language}}</p>
+        <p>Comments: {{comment}}</p>
+        <form action="/back" method = "POST">
+            {% csrf_token %}
+            <input type="submit" value = "Back">
+        </form>
+        <form class = "back" action="/reset" method = "POST">
+            {% csrf_token %}
+            <input type="submit" value = "Clear Data">
+        </form>
+    </body>
+</html>
