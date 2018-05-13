@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width='device-width', initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+       
+        <title>Amadon</title>
+    </head>
+    <body>
+        <div class = "container">
+            <h1 class="page-header">Welcome to Amadon</h1>
+            <form action="/amadon_app/add_to_cart" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name = "product_id" value = "1015">
+                <select name = "quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                Dojo T Shirt ($19.99)<input type="submit" class="btn btn-primary" value = "add to cart!">
+            </form>
+            <form action="/amadon_app/add_to_cart" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name = "product_id" value = "1016">
+                <select name = "quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                Dojo Sweater ($29.99)<input type="submit" class="btn btn-primary" value = "add to cart!">
+            </form>
+            <form action="/amadon_app/add_to_cart" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name = "product_id" value = "1017">
+                <select name = "quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                Dojo Cup ($4.99)<input type="submit" class="btn btn-primary" value = "add to cart!">
+            </form>
+            <form action="/amadon_app/add_to_cart"  method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name = "product_id" value = "1018">
+                <select name = "quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                Algorithm Book ($49.99)<input type="submit" class="btn btn-primary" value = "add to cart!">
+            </form>
+            <h4>Your Total is ${{request.session.total}}</h4>
+            <form action="/amadon_app/checkout" method = "POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-success" value = "CHECKOUT">
+            </form>
+            <form action="/clear" method = "POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-warning" value = "empty cart">
+            </form>
+        </div>
+    </body>
+</html>
