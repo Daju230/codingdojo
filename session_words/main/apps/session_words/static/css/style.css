@@ -1,0 +1,47 @@
+.wrapper{
+    width: 900px;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: rgb(243, 243, 113);
+    border-radius: 10px;
+}
+.form{
+    display: table-cell;
+    width: 50%;
+    padding: 0.5rem;
+    border-right: 3px solid black;
+}
+.red{
+    color: red;
+}
+
+.blue{
+    color: blue;
+}
+
+.green{
+    color: green;
+}
+
+.on{
+    font-weight: 100;
+    font-size: 30px;
+}
+.radio{
+    border: 2px solid black;
+    display: inline-block;
+}
+.font{
+    border: 2px solid black;
+    display: inline-block;
+}
+.word{
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.add_new{
+    border: 2px solid black;
+    display: inline-block;
+    padding: 3px;
+}

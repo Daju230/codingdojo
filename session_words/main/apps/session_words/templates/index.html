@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Session Words</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    </head>
+    <body>
+        <div class = "wrapper">
+            <h1>Add a New Word (with Django):</h1>
+            <div class="form">
+                <form class = "add_new" action="/localhost/session_words/add_word" method = "POST">
+                    {% csrf_token %}
+                    <div class = "word"><input type="text" name = "word"></div> 
+                    <div class = "radio">
+                        <input type="radio" name = "color" value = "red">Red
+                        <input type="radio" name = "color" value = "green">Green
+                        <input type="radio" name = "color" value = "blue">Blue
+                    </div>
+                    <div class = "font"> Check for BIG FONT: <input type="checkbox" name = "big_font"></div>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="form">
+                {% for i in request.session.all_words %}       
+                    <p><span class = "{{i.color}} {{i.font}}">{{i.word}}</span> created at {{i.time}}</p>                 
+                {% endfor %}
+            </div>
+            <form action="localhost/session_words/clear" method = "POST">
+                {% csrf_token %}
+                <input type="submit" value = "clear">
+            </form>
+        </div>
+    </body>
+</html>
